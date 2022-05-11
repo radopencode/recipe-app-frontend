@@ -31,6 +31,10 @@ export default {
     <span v-if="!isLoggedIn">
       <router-link to="/login">Login</router-link>
     </span>
+    |
+    <span>
+      <router-link to="/recipes">All Recipes</router-link>
+    </span>
   </nav>
   <router-view />
 </template>

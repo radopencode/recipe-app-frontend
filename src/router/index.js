@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import SignUp from "../views/SignUp.vue";
 import LogIn from "../views/LogIn.vue";
-import Rec
+import RecipesIndex from "../views/RecipesIndex.vue";
 
 const routes = [
   {
@@ -27,6 +27,11 @@ const routes = [
     path: "/login",
     name: "login",
     component: LogIn,
+  },
+  {
+    path: "/recipes",
+    name: "recipes-index",
+    component: RecipesIndex,
   },
 ];
 
