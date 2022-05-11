@@ -26,6 +26,7 @@ export default {
     <h1>All Recipes</h1>
     <div v-for="recipe in recipes" v-bind:key="recipe.id">
       <h2>{{ recipe.name }}</h2>
+      <router-link v-bind:to="`/recipes/${recipe.id}`">More details</router-link>
     </div>
   </div>
 </template>

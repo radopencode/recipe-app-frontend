@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import SignUp from "../views/SignUp.vue";
 import LogIn from "../views/LogIn.vue";
 import RecipesIndex from "../views/RecipesIndex.vue";
+import RecipesShow from "../views/RecipesShow.vue";
 
 const routes = [
   {
@@ -32,6 +33,11 @@ const routes = [
     path: "/recipes",
     name: "recipes-index",
     component: RecipesIndex,
+  },
+  {
+    path: "/recipes",
+    name: "recipes-show",
+    component: RecipesShow,
   },
 ];
 
