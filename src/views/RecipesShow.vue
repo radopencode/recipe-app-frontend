@@ -18,8 +18,8 @@ export default {
 
 <template>
   <div class="recipes-show">
-    <h2>{{ recipe.name }}</h2>
-    <h2>{{ recipe.instructions }}</h2>
+    <h1>{{ recipe.name }}</h1>
+    <h3>{{ recipe.instructions }}</h3>
     <router-link to="/recipes">Back to all recipes</router-link>
   </div>
 </template>

@@ -22,8 +22,6 @@ export default {
   <nav>
     <router-link to="/">Home</router-link>
     |
-    <router-link to="/about">About</router-link>
-    |
     <span v-if="!isLoggedIn">
       <router-link to="/signup">Signup</router-link>
     </span>
@@ -34,6 +32,10 @@ export default {
     |
     <span>
       <router-link to="/recipes">All Recipes</router-link>
+    </span>
+    |
+    <span>
+      <router-link to="/favorites">Favorites</router-link>
     </span>
   </nav>
   <router-view />
