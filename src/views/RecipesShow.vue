@@ -4,11 +4,12 @@ export default {
   data: function () {
     return {
       recipe: {},
+      recipeIngredients: [],
     };
   },
   created: function () {
-    axios.get("/recipes/" + this.$route.params.id).then((response) => {
-      console.log("recipes show", response);
+    axios.get("http://localhost:3000/recipes/" + this.$route.params.id + ".json").then((response) => {
+      console.log(response.data);
       this.recipe = response.data;
     });
   },
@@ -17,9 +18,12 @@ export default {
 </script>
 
 <template>
-  <div class="recipes-show">
-    <h1>{{ recipe.name }}</h1>
-    <h3>{{ recipe.instructions }}</h3>
-    <router-link to="/recipes">Back to all recipes</router-link>
+  <h1>Recipe</h1>
+  <!-- <p>{{ recipe.name }}</p> -->
+  <!-- <p>{{ recipe.ingredients }}</p> -->
+  <div v-for="recipeIngredient in recipeIngredients" v-bind:key="recipeIngredients.name">
+    <p>{{ recipeIngredient.name }}</p>
   </div>
+
+  <router-link to="/recipes">Back to all recipes</router-link>
 </template>

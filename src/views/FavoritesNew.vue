@@ -1,46 +1,36 @@
-<script>
+<!-- <script>
 import axios from "axios";
 export default {
   data: function () {
     return {
-      newPhotoParams: {},
-      errors: [],
+      favorites: [],
     };
   },
   created: function () {},
   methods: {
-    createPhoto: function () {
+    createFavorite: function () {
       axios
-        .post("/photos", this.newPhotoParams)
+        .post("/favorites", this.this.$route.params.id)
         .then((response) => {
-          console.log("photos create", response);
-          this.$router.push("/photos");
+          console.log("favorites create", response);
+          this.$router.push("/favorites");
         })
-        .catch((error) => {
-          console.log("photos create error", error.response);
-          this.errors = error.response.data.errors;
-        });
+      });
     },
   },
 };
 </script>
 
 <template>
-  <div class="photos-new">
-    <h1>New Photo</h1>
-    <form v-on:submit.prevent="createPhoto()">
+  <div class="favorites-new">
+    <h1>Favorites</h1>
+    v-on:submit="createPhoto()">
       <ul>
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
       </ul>
       Name:
-      <input type="text" v-model="newPhotoParams.name" />
-      Width:
-      <input type="text" v-model="newPhotoParams.width" />
-      Height:
-      <input type="text" v-model="newPhotoParams.height" />
-      Url:
-      <input type="text" v-model="newPhotoParams.url" />
+      <input type="text" v-model="recipe.name" />
       <input type="submit" value="Create" />
     </form>
   </div>
-</template>
+</template> -->

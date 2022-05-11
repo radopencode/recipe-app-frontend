@@ -21,7 +21,6 @@ export default {
 </script>
 
 <template>
-  <h1>HERE ARE recipes</h1>
   <div class="recipes-index">
     <h1>All Recipes</h1>
     <div v-for="recipe in recipes" v-bind:key="recipe.id">
