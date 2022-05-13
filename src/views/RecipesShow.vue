@@ -5,33 +5,45 @@ export default {
     return {
       recipe: {},
       ingredients: {},
+      user_id: localStorage.getItem("user_id"),
     };
   },
   created: function () {
     axios.get("http://localhost:3000/recipes/" + this.$route.params.id + ".json").then((response) => {
-      console.log(response.data, this.recipe.ingredients);
       this.recipe = response.data;
+      console.log(this.recipe, this.user_id);
     });
     // this.indexIngredients();
   },
   methods: {
-    // indexIngredients: function () {
-    //   axios.get("/ingredients").then((response) => {
-    //     console.log("ingredients", response);
-    //     this.ingredients = response.data;
-    //   });
-    // },
+    createFavorite: function () {
+      axios.post("/favorites", this.recipe.id).then((response) => {
+        console.log("favorites create", response, this.recipe);
+        this.$router.push("/favorites");
+      });
+    },
   },
+
+  // indexIngredients: function () {
+  //   axios.get("/ingredients").then((response) => {
+  //     console.log("ingredients", response);
+  //     this.ingredients = response.data;
+  //
 };
 </script>
 
 <template>
   <h1>Recipe</h1>
   <p>{{ recipe.name }}</p>
+  <h2>Ingredients</h2>
   <!-- <p>{{ recipe.ingredients }}</p> -->
   <div v-for="index in recipe.ingredients.length" :key="index">
     <p>{{ recipe.ingredients[index - 1].name }}</p>
   </div>
+  <h2>Instructions</h2>
+  <p>{{ recipe.instructions }}</p>
+  <!-- <p>{{ recipe.recipe_ingredients }}</p> -->
+
   <!-- <div v-for="ingredient in ingredients" v-bind:key="ingredient.id">
     <p>{{ ingredients.name }}</p>
   </div> -->
@@ -39,6 +51,8 @@ export default {
   <!-- <div v-for="recipeIngredient in recipeIngredients" v-bind:key="recipeIngredients.id">
     <p>{{ recipeIngredient.name }}</p> -->
   <!-- </div> -->
-
+  <button v-on:click="createFavorite(currentRecipe)">Add to Favorites</button>
+  <br />
+  <br />
   <router-link to="/recipes">Back to all recipes</router-link>
 </template>

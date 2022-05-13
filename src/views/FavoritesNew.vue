@@ -1,4 +1,4 @@
-<!-- <script>
+<script>
 import axios from "axios";
 export default {
   data: function () {
@@ -6,17 +6,23 @@ export default {
       favorites: [],
     };
   },
-  created: function () {},
+  created: function () {
+    this.indexFavorites();
+  },
+
   methods: {
-    createFavorite: function () {
-      axios
-        .post("/favorites", this.this.$route.params.id)
-        .then((response) => {
-          console.log("favorites create", response);
-          this.$router.push("/favorites");
-        })
+    indexFavorites: function () {
+      axios.get("/favorites").then((response) => {
+        console.log("favorites index", response);
+        this.favorites = response.data;
       });
     },
+    // createFavorite: function () {
+    //   axios.post("/favorites", this.$route.params.id).then((response) => {
+    //     console.log("favorites create", response);
+    //     this.$router.push("/favorites");
+    //   });
+    // },
   },
 };
 </script>
@@ -24,13 +30,8 @@ export default {
 <template>
   <div class="favorites-new">
     <h1>Favorites</h1>
-    v-on:submit="createPhoto()">
-      <ul>
-        <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
-      </ul>
-      Name:
-      <input type="text" v-model="recipe.name" />
-      <input type="submit" value="Create" />
-    </form>
+    <div v-for="favorite in favorites" v-bind:key="favorite.id">
+      <h2>Title: {{ favorite }}</h2>
+    </div>
   </div>
-</template> -->
+</template>
