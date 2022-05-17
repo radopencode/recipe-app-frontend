@@ -36,6 +36,7 @@ export default {
   <div v-for="index in recipe.ingredients.length" :key="index">
     <p>{{ recipe.ingredients[index - 1].name }}</p>
   </div>
+
   <h2>Instructions</h2>
   <p>{{ recipe.instructions }}</p>
   <p>{{ recipe.recipe_ingredients }}</p>

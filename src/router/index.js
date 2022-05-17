@@ -5,7 +5,7 @@ import LogIn from "../views/LogIn.vue";
 import LogOut from "../views/LogOut.vue";
 import RecipesIndex from "../views/RecipesIndex.vue";
 import RecipesShow from "../views/RecipesShow.vue";
-import FavoritesNew from "../views/FavoritesNew.vue";
+import FavoritesIndex from "../views/FavoritesIndex.vue";
 
 const routes = [
   {
@@ -40,8 +40,8 @@ const routes = [
   },
   {
     path: "/favorites",
-    name: "favorites-new",
-    component: FavoritesNew,
+    name: "favorites-index",
+    component: FavoritesIndex,
   },
 ];
 
